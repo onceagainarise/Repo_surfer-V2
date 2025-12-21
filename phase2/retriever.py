@@ -8,23 +8,39 @@ class RepoRetriever:
         self.node_index = build_node_index(symbol_graph)
 
     def query(self, text: str, top_k: int = 5):
+        # 1️⃣ Embed query
         query_vector = self.embedder.embed([text])[0]
 
-        hits = self.vector_store.client.query_points(
-            collection_name=self.vector_store.collection,
-            query=query_vector,
-            limit=top_k
-        )
+        # 2️⃣ Vector search (abstracted)
+        hits = self.vector_store.search(query_vector, limit=top_k)
 
-        expanded = {}
+        results = {}
+        
+        # 3️⃣ Add vector hits
         for hit in hits:
-            symbol_id = hit.payload["symbol_id"]
-            expanded[symbol_id] = hit.payload
+            payload = hit.payload
+            symbol_id = payload["symbol_id"]
 
-            # graph expansion
+            results[symbol_id] = {
+                "symbol_id": symbol_id,
+                "symbol_type": payload.get("symbol_type"),
+                "file": payload.get("file"),
+                "score": hit.score,
+                "source": "vector"
+            }
+
+            # 4️⃣ Graph expansion
             neighbors = get_neighbors(self.symbol_graph, symbol_id)
             for nid in neighbors:
-                if nid in self.node_index:
-                    expanded[nid] = self.node_index[nid]
+                if nid in self.node_index and nid not in results:
+                    node = self.node_index[nid]
+                    results[nid] = {
+                        "symbol_id": nid,
+                        "symbol_type": node["type"],
+                        "file": node.get("file"),
+                        "score": hit.score * 0.7,  # decay
+                        "source": "graph"
+                    }
 
-        return list(expanded.values())
+        # 5️⃣ Sort by score
+        return sorted(results.values(), key=lambda x: x["score"], reverse=True)

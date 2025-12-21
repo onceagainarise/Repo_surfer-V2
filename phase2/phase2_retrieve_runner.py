@@ -7,17 +7,30 @@ def run_retrieval(repo_path: str, query: str):
     with open(f"{repo_path}/symbol_graph.json") as f:
         symbol_graph = json.load(f)
 
-    embedder = EmbeddingGenerator()
     repo_name = repo_path.split("/")[-1]
+
+    embedder = EmbeddingGenerator()
     store = VectorStore(collection_name=repo_name)
+    store.create(vector_size=embedder.dim)
+    retriever = RepoRetriever(
+        vector_store=store,
+        symbol_graph=symbol_graph,
+        embedder=embedder
+    )
 
-    retriever = RepoRetriever(store, symbol_graph, embedder)
-
-    results = retriever.query(query)
+    results = retriever.query(query, top_k=5)
+    print(
+    "Vector count:",
+    store.client.count(store.collection, exact=True).count
+)
 
     for r in results:
-        print(f"\n--- {r['id']} ({r['type']}) ---")
-        print(r.get("text", "")[:300])
+        print(
+            f"\n[{r['source']}] {r['symbol_id']} "
+            f"({r['symbol_type']}) "
+            f"score={r['score']:.3f}"
+        )
+        print(f"File: {r['file']}")
 
 if __name__ == "__main__":
     run_retrieval(
