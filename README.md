@@ -22,4 +22,5 @@ i have used qdrant database to store the embeddings generated using sentence tra
 
 made some changes to over the embedded data and retrieve it . there are some issues but will be solved with the later commits .
 
-sovled the issues related to the retrival and now we are able to retrieve the embeddings along with the confidence score so that's good.
+sovled the issues related to the retrival and now I AM able to retrieve the embeddings along with the confidence score so that's good.
+and with the latest commit which take in account of both graph and semantic comparision in giving the confidence score i am done with the phase2 which was one of the most important phase and now will move onto to the llm reasoning stage. the BRAIN.
