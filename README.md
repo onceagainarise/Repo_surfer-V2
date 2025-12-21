@@ -16,3 +16,5 @@ build graph to get understanding of how these files connect to each other.
 
 let's move to the phase2 that is chunking , generating embedding and storing it in the database.
 
+with this commit we have started building the phase2 we first designed a symbol_chunk_loader file in order to convert symbols( classes for now ) into chunks before generating the embeddings.
+
