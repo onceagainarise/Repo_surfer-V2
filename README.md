@@ -27,3 +27,5 @@ and with the latest commit which take in account of both graph and semantic comp
 
 with this commit i have started building the phase3 of the project of integrating the llm for reasoning .
 
+As of right now the main pipeline for the whole process has been completed and from now on the main challenge would start.
+repo surfer currently only performs surface level reasoning which is good for small repos but for complex architecture it would fail so we would now work on imporving the creation of graph, symbol tree, embedding and optimizing the retreival process and also provide a ui for user to use the repo surfer since as of now it is only an engine without an outside body of car to drive it.
