@@ -24,3 +24,6 @@ made some changes to over the embedded data and retrieve it . there are some iss
 
 sovled the issues related to the retrival and now I AM able to retrieve the embeddings along with the confidence score so that's good.
 and with the latest commit which take in account of both graph and semantic comparision in giving the confidence score i am done with the phase2 which was one of the most important phase and now will move onto to the llm reasoning stage. the BRAIN.
+
+with this commit i have started building the phase3 of the project of integrating the llm for reasoning .
+
