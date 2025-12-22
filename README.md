@@ -1,3 +1,161 @@
+# RepoSurfer 🏄‍♂️
+
+**Semantic Codebase Understanding for Large Repositories**
+
+RepoSurfer is an experimental system that helps developers understand, navigate, and reason about large codebases using symbol graphs, embeddings, and LLM-based reasoning.
+
+Instead of reading files manually or relying only on runtime errors, RepoSurfer builds a semantic map of a repository and uses it to answer questions like:
+
+- Where is this issue likely coming from?
+- Which classes, methods, or files are related to this bug?
+- What parts of the codebase should I inspect first?
+
+---
+
+## 🚀 What RepoSurfer Does (High Level)
+
+1. **Clones a repository**
+2. **Extracts code structure** (files, classes, functions, methods)
+3. **Builds a symbol graph** representing relationships in the code
+4. **Generates embeddings** for symbols (code-aware chunks)
+5. **Performs hybrid retrieval** (vector similarity + graph expansion)
+6. **Uses an LLM** to reason over retrieved code and propose investigation paths
+
+RepoSurfer is **language-aware**, **repository-aware**, and **context-driven**.
+
+---
+
+## ✅ Current Progress (Completed Phases)
+
+### Phase 0 – Repository Ingestion
+- ✔ Clone GitHub repositories
+- ✔ Fetch metadata (commits, issues, PRs, branches, tags)
+- ✔ Build file tree structure
+
+### Phase 1 – Static Code Understanding
+- ✔ Language detection
+- ✔ AST-based parsing (Python)
+- ✔ Symbol extraction (files, classes, methods, functions)
+- ✔ Symbol graph construction
+
+### Phase 2 – Semantic Retrieval Engine
+- ✔ Symbol-level chunking
+- ✔ Embedding generation
+- ✔ Vector storage using Qdrant
+- ✔ Hybrid retrieval (vector similarity + graph neighbors)
+- ✔ Ranked, explainable retrieval results
+
+### Phase 3 – LLM Reasoning (Initial)
+- ✔ LLM-powered investigation planning
+- ✔ Reasoning over retrieved symbols
+- ✔ Issue-to-code mapping (manual issue input)
+
+📌 **At this stage, the full RepoSurfer pipeline is functional and validated end-to-end.**
+
+---
+
+## 🧪 What RepoSurfer Is Not
+
+- ❌ A runtime debugger
+- ❌ A replacement for stack traces
+- ❌ A test runner
+
+RepoSurfer is designed for **semantic understanding** and **codebase exploration**, especially when:
+
+- The repo is large
+- You're unfamiliar with the code
+- The bug is architectural or historical
+- Context is scattered across files
+
+---
+
+## 🛠️ Current Usage (Developer Mode)
+
+RepoSurfer currently runs as a backend research pipeline using Python modules and runners.
+
+**Typical flow:**
+```
+Repo → Symbols → Graph → Embeddings → Retrieval → LLM Reasoning
+```
+
+> **Note:** User-facing interfaces (CLI / library API) are not yet finalized.
+
+---
+
+## 🧭 What's Coming Next (Planned Phases)
+
+### Phase 4 – MVP Productization
+- Python library API
+- CLI interface (`reposurfer analyze <repo> --issue "<text>"`)
+- Structured, user-friendly outputs
+
+### Phase 5 – Issue-Aware Reasoning
+- Automatic GitHub issue ingestion
+- Patch / PR context awareness
+- Historical fix reasoning
+- Issue-to-commit linking
+
+### Phase 6 – Advanced Semantics
+- Improved embeddings (symbol + context + dependency aware)
+- Cross-file and cross-module reasoning
+- Multi-hop graph reasoning
+- Better handling of large, complex repositories
+
+---
+
+## 🎯 Project Goal
+
+The goal of RepoSurfer is to evolve into a **practical AI assistant** for understanding real-world codebases, not just answering surface-level questions.
+
+RepoSurfer prioritizes:
+
+- **Explainability**
+- **Precision**
+- **Code structure awareness**
+- **Scalability** to large repos
+
+---
+
+## ⚠️ Status
+
+🟡 **Active development**  
+🧪 **Research-driven**  
+🚧 **APIs may change**
+
+---
+
+## 🙌 Why RepoSurfer Exists
+
+Modern repositories are too large to understand file-by-file. RepoSurfer explores a better abstraction:
+
+> **Understand the codebase as a graph of meaning, not a pile of files.**
+
+---
+
+## 📦 Installation
+
+*Coming soon – Phase 4*
+```bash
+# Planned installation (not yet available)
+pip install reposurfer
+```
+
+---
+
+## 🚀 Quick Start
+
+*Coming soon – Phase 4*
+```bash
+# Planned CLI usage (not yet available)
+reposurfer analyze <github-repo-url> --issue "Bug in authentication flow"
+```
+
+---
+
+**Built with 🧠 for developers who want to understand code, not just read it.**
+
+
+### Author Note
 This is an upgraded version of repo surfer ---> Repo Surfer V2 
 our main foucs of making this project is to help users in open source project exploration and contribution.
 
