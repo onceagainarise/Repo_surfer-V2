@@ -1,35 +1,50 @@
-def build_explanation_prompt(query: str, evidence: list):
-    prompt = f"""
-You are a senior software engineer helping a contributor understand a codebase.  
+def build_investigation_prompt(
+    query: str,
+    retrieved_symbols: list[dict],
+) -> list[dict]:
+    """
+    retrieved_symbols: output of Phase 2 hybrid retriever
+    """
 
-User issue:
-"{query}"
+    evidence_blocks = []
+    for s in retrieved_symbols:
+        snippet = s.get("text", "")[:500]
+        evidence_blocks.append(
+            f"""
+Symbol: {s.get('id')}
+Type: {s.get('type')}
+File: {s.get('file')}
+---
+{snippet}
+""".strip()
+        )
 
-Below is a list of relevant code symbols retrieved from the repository.
-Each item includes its type, file, and a snippet.
+    evidence_text = "\n\n".join(evidence_blocks)
 
-Your task:
-- Explain why these symbols are relevant
-- Suggest where the developer should start reading
-- Do NOT invent files or functions
-- Do NOT suggest fixes
-- Stay grounded in the provided evidence
+    system = {
+        "role": "system",
+        "content": (
+            "You are a senior software engineer assisting in code investigation. "
+            "You MUST only use the provided code evidence. "
+            "If something is missing, say so explicitly. "
+            "Do not hallucinate code or files."
+        ),
+    }
 
-Evidence:
-"""
+    user = {
+        "role": "user",
+        "content": f"""
+User problem:
+{query}
 
-    for i, e in enumerate(evidence, 1):
-        prompt += f"""
-[{i}]
-Symbol: {e['id']}
-Type: {e['type']}
-File: {e['file']}
-Snippet:
-{e['snippet']}
-"""
+Relevant code evidence:
+{evidence_text}
 
-    prompt += """
-Provide a concise explanation (5–8 sentences).
-"""
+Task:
+1. Identify the most likely root cause area
+2. List concrete investigation steps (files + what to look for)
+3. Do NOT suggest fixes yet
+""".strip(),
+    }
 
-    return prompt
+    return [system, user]

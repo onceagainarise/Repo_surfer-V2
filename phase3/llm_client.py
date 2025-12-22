@@ -11,7 +11,7 @@ class LLMClient:
         
         self.client = Groq(api_key=api_key)
         self.model = model_name
-
+   
     def explain(self, prompt: str)-> str:
         response = self.client.chat.completions.create(
             model = self.model,
@@ -33,4 +33,13 @@ class LLMClient:
             max_tokens=300,
         )
 
+        return response.choices[0].message.content
+    
+    def generate(self, messages, max_tokens=400):
+        response = self.client.chat.completions.create(
+            model = self.model,
+            messages = messages,
+            temperature = 0.2,
+            max_tokens = max_tokens,
+        )
         return response.choices[0].message.content
