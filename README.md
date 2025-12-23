@@ -191,3 +191,5 @@ As of now i have completed the basic pipeline of repo-surfer and now we would tr
 
 As of right now the main pipeline for the whole process has been completed and from now on the main challenge would start.
 repo surfer currently only performs surface level reasoning which is good for small repos but for complex architecture it would fail so we would now work on imporving the creation of graph, symbol tree, embedding and optimizing the retreival process and also provide a ui for user to use the repo surfer since as of now it is only an engine without an outside body of car to drive it.
+
+now with this i have made the basic structure of how the orchestrator should look like and now i would change each modules by removing individual runners and combining the small funcitons into a single class to make the code more modular.
