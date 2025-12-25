@@ -1,5 +1,5 @@
-from phase2.embedding_generator import EmbeddingGenerator
-from phase2.graph_utils import (
+from embeddings.embedding_generator import EmbeddingGenerator
+from retrieval.graph_utils import (
     build_node_index,
     get_neighbors,
     compute_graph_score

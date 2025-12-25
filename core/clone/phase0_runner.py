@@ -1,9 +1,9 @@
 import os
-from phase0.github_client import GitHubClient
-from phase0.repo_cloner import RepoCloner
-from phase0.tree_builder import FileTreeBuilder
-from phase0.metadata_extractor import MetadataExtractor
-from phase0.utils import save_json
+from clone.github_client import GitHubClient
+from clone.repo_cloner import RepoCloner
+from clone.tree_builder import FileTreeBuilder
+from clone.metadata_extractor import MetadataExtractor
+from clone.utils import save_json
 from config import BASE_STORAGE_PATH
 
 

@@ -1,5 +1,5 @@
-from phase3.prompt_builder import build_investigation_prompt
-from phase3.llm_client import LLMClient
+from reasoning.prompt_builder import build_investigation_prompt
+from reasoning.llm_client import LLMClient
 
 class InvestigationPlanner:
     def __init__(self, llm: LLMClient):

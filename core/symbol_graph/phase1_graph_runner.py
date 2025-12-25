@@ -1,14 +1,14 @@
 import os
 import json
 
-from phase1.symbol_loader import load_symbols
-from phase1.graph_builder import (
+from symbol_graph.symbol_loader import load_symbols
+from symbol_graph.graph_builder import (
     build_contains_edges,
     add_import_edges,
     add_inherits_edges,
 )
 
-from phase0.utils import save_json
+from clone.utils import save_json
 
 
 def run_phase1_7(repo_path: str):

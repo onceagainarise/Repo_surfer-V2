@@ -2,10 +2,10 @@
 import os
 import json
 
-from phase0.utils import save_json
-from phase1.language_detector import is_python_file
-from phase1.python_parser import PythonASTParser
-from phase1.python_symbol_extractor import PythonSymbolExtractor
+from clone.utils import save_json
+from symbol_graph.language_detector import is_python_file
+from symbol_graph.python_parser import PythonASTParser
+from symbol_graph.python_symbol_extractor import PythonSymbolExtractor
 
 
 def run_phase1(repo_path:str):

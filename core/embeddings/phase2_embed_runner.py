@@ -1,6 +1,6 @@
 import json
-from phase2.embedding_generator import EmbeddingGenerator
-from phase2.vector_store import VectorStore
+from embeddings.embedding_generator import EmbeddingGenerator
+from embeddings.vector_store import VectorStore
 
 def run_embedding(repo_path: str):
     with open(f"{repo_path}/symbol_chunks.json") as f:
