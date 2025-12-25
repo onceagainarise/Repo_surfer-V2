@@ -1,6 +1,6 @@
 import json
 import os
-from embeddings.symbol_chunk_builder import SymbolChunkBuilder
+from reposurfer.core.embeddings.symbol_chunk_builder import SymbolChunkBuilder
 
 def run_phase2(repo_path: str):
     graph_path = os.path.join(repo_path, "symbol_graph.json")

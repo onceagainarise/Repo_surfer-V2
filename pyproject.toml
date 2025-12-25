@@ -1,0 +1,10 @@
+[project]
+dependencies = [
+    "pygithub"
+    "gitpython",
+    "qdrant-client",
+    "fastembed",
+    "tqdm",
+    "sentence-transformers"
+    # add others you already use
+]

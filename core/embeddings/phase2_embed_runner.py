@@ -1,6 +1,6 @@
 import json
-from embeddings.embedding_generator import EmbeddingGenerator
-from embeddings.vector_store import VectorStore
+from reposurfer.core.embeddings.embedding_generator import EmbeddingGenerator
+from reposurfer.core.embeddings.vector_store import VectorStore
 
 def run_embedding(repo_path: str):
     with open(f"{repo_path}/symbol_chunks.json") as f:

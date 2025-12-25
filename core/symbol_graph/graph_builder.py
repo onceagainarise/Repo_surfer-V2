@@ -1,4 +1,4 @@
-from symbol_graph.symbol_graph import SymbolGraph, GraphNode, GraphEdge
+from reposurfer.core.symbol_graph.symbol_graph import SymbolGraph, GraphNode, GraphEdge
 
 
 def build_contains_edges(symbols):

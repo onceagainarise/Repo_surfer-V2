@@ -1,9 +1,9 @@
 import os
-from clone.github_client import GitHubClient
-from clone.repo_cloner import RepoCloner
-from clone.tree_builder import FileTreeBuilder
-from clone.metadata_extractor import MetadataExtractor
-from clone.utils import save_json
+from reposurfer.core.clone.github_client import GitHubClient
+from reposurfer.core.clone.repo_cloner import RepoCloner
+from reposurfer.core.clone.tree_builder import FileTreeBuilder
+from reposurfer.core.clone.metadata_extractor import MetadataExtractor
+from reposurfer.core.clone.utils import save_json
 from config import BASE_STORAGE_PATH
 
 

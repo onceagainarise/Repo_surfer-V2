@@ -1,9 +1,9 @@
 import json
-from retrieval.retriever import RepoRetriever
-from embeddings.vector_store import VectorStore
-from embeddings.embedding_generator import EmbeddingGenerator
-from reasoning.llm_client import LLMClient
-from reasoning.investigation import InvestigationPlanner
+from reposurfer.core.retrieval.retriever import RepoRetriever
+from reposurfer.core.embeddings.vector_store import VectorStore
+from reposurfer.core.embeddings.embedding_generator import EmbeddingGenerator
+from reposurfer.core.reasoning.llm_client import LLMClient
+from reposurfer.core.reasoning.investigation import InvestigationPlanner
 
 def run_phase3(repo_path: str, query: str):
     with open(f"{repo_path}/symbol_graph.json") as f:

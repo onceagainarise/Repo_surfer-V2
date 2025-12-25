@@ -1,7 +1,7 @@
 import json
-from retrieval.retriever import RepoRetriever
-from embeddings.vector_store import VectorStore
-from embeddings.embedding_generator import EmbeddingGenerator
+from reposurfer.core.retrieval.retriever import RepoRetriever
+from reposurfer.core.embeddings.vector_store import VectorStore
+from reposurfer.core.embeddings.embedding_generator import EmbeddingGenerator
 
 def run_retrieval(repo_path: str, query: str):
     with open(f"{repo_path}/symbol_graph.json") as f:

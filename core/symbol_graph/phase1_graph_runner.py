@@ -1,8 +1,8 @@
 import os
 import json
 
-from symbol_graph.symbol_loader import load_symbols
-from symbol_graph.graph_builder import (
+from reposurfer.core.symbol_graph.symbol_loader import load_symbols
+from reposurfer.core.symbol_graph.graph_builder import (
     build_contains_edges,
     add_import_edges,
     add_inherits_edges,

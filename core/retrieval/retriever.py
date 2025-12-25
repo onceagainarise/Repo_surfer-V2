@@ -1,5 +1,5 @@
-from embeddings.embedding_generator import EmbeddingGenerator
-from retrieval.graph_utils import (
+from reposurfer.core.embeddings.embedding_generator import EmbeddingGenerator
+from reposurfer.core.retrieval.graph_utils import (
     build_node_index,
     get_neighbors,
     compute_graph_score
