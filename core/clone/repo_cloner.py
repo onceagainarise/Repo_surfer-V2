@@ -1,6 +1,6 @@
 import os 
 from git import Repo
-from config import BASE_STORAGE_PATH
+from reposurfer.config import BASE_STORAGE_PATH
 
 class RepoCloner:
     def __init__(self,base_path=BASE_STORAGE_PATH):

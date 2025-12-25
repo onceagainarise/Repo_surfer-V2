@@ -1,5 +1,5 @@
 from github import Github
-from config import GITHUB_TOKEN
+from reposurfer.config import GITHUB_TOKEN
 
 class GitHubClient:
     def __init__(self):

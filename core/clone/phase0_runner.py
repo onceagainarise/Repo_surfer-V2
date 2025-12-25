@@ -4,7 +4,7 @@ from reposurfer.core.clone.repo_cloner import RepoCloner
 from reposurfer.core.clone.tree_builder import FileTreeBuilder
 from reposurfer.core.clone.metadata_extractor import MetadataExtractor
 from reposurfer.core.clone.utils import save_json
-from config import BASE_STORAGE_PATH
+from reposurfer.config import BASE_STORAGE_PATH
 
 
 def run_phase0(repo_url: str):

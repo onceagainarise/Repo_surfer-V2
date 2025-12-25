@@ -8,7 +8,7 @@ from reposurfer.core.symbol_graph.graph_builder import (
     add_inherits_edges,
 )
 
-from clone.utils import save_json
+from reposurfer.core.clone.utils import save_json
 
 
 def run_phase1_7(repo_path: str):
